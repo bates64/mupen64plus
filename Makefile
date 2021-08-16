@@ -52,8 +52,8 @@ GLideN64/projects/cmake/Makefile:
 		../../src/
 
 clean:
-	rm out/mupen64plus $(SODIR)/*.$(SO)
-	rm -rf */projects/unix/_obj
+	rm out/mupen64plus $(SODIR)/*.$(SO) || exit 0
+	rm -rf */projects/unix/_obj || exit 0
 	mkdir -p $(SODIR)
 
 .PHONY: clean
