@@ -51,8 +51,13 @@ GLideN64/projects/cmake/Makefile:
 		-DMUPENPLUSAPI_GLIDENUI=Off -DNOHQ=On -DVEC4_OPT=On -DCRC_OPT=On -DMUPENPLUSAPI=On \
 		../../src/
 
+out/mupen64plus.tar.gz: out/mupen64plus
+	cd out \
+		&& tar -cf mupen64plus.tar * \
+		&& gzip -9 mupen64plus.tar
+
 clean:
-	rm out/mupen64plus $(SODIR)/*.$(SO) || exit 0
+	rm out/mupen64plus out/mupen64plus.tar.gz $(SODIR)/*.$(SO) || exit 0
 	rm -rf */projects/unix/_obj || exit 0
 	mkdir -p $(SODIR)
 
